@@ -1,0 +1,14 @@
+<h1>Dice Game</h1>
+<img src="http://jeffcohenonline.com/dice/<%= @numbers[0] %>.png">
+<img src="http://jeffcohenonline.com/dice/<%= @numbers[1] %>.png">
+<% if @result == 0 %>
+	<h1>You WIN!</h1>
+	<form action="/dice"><input type="submit" value="Start Over"></form>
+<% elsif @result == 1 %>
+   	<h1>You Lose...</h1>
+	<form action="/dice"><input type="submit" value="Start Over"></form>
+<% else %>
+  	<h1>Your Goal is <%= @goal %></h1>
+	<h1>Now try to get <%= @goal %> again before you roll a 7.</h1>
+	<form action="/dice/roll"><input type="hidden" name="goal" value="<%= @goal %>"><input type="submit" value="Keeping Rolling"></form>
+<% end %>
